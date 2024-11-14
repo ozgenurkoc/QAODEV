@@ -1,0 +1,200 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-11-14T19:45:54.711Z",
+    "end": "2024-11-14T19:45:56.594Z",
+    "duration": 1883,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8616d06e-08fe-4c0f-b5b2-d159bb1e8917",
+      "title": "",
+      "fullFile": "cypress\\e2e\\ApiTest\\apitest.cy.js",
+      "file": "cypress\\e2e\\ApiTest\\apitest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7e6322b9-98dd-41d0-9c9d-0cbf8bfdde7d",
+          "title": "Login Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Kullancı oluşturma",
+              "fullTitle": "Login Test Kullancı oluşturma",
+              "timedOut": null,
+              "duration": 1002,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const payload = {\n  \"id\": id,\n  \"username\": \"ozge_\" + id,\n  \"firstName\": \"özge_\" + id,\n  \"lastName\": \"koc_\" + id,\n  \"email\": \"ozge\" + id + \"@gmail.com\",\n  \"password\": \"123456789\" + id,\n  \"phone\": \"5362264319\" + id,\n  \"userStatus\": 1\n};\ncy.request({\n  method: \"POST\",\n  url: \"https://petstore.swagger.io/v2/user\",\n  body: payload\n}).then(response => {\n  expect(response.status).to.eq(200);\n});",
+              "err": {},
+              "uuid": "fb1310ff-0241-4278-9ad3-ebef1ec92311",
+              "parentUUID": "7e6322b9-98dd-41d0-9c9d-0cbf8bfdde7d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Kullanıcı oluşturma payload null",
+              "fullTitle": "Login Test Kullanıcı oluşturma payload null",
+              "timedOut": null,
+              "duration": 162,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const payload = null;\ncy.request({\n  method: \"POST\",\n  url: \"https://petstore.swagger.io/v2/user\",\n  body: payload,\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(415);\n});",
+              "err": {},
+              "uuid": "80f92187-02b8-4b28-9d14-516f8c508759",
+              "parentUUID": "7e6322b9-98dd-41d0-9c9d-0cbf8bfdde7d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Kullanıcı Güncelleme",
+              "fullTitle": "Login Test Kullanıcı Güncelleme",
+              "timedOut": null,
+              "duration": 157,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const payload = {\n  \"id\": id,\n  \"username\": \"ozge_\" + id,\n  \"firstName\": \"özge_\" + id,\n  \"lastName\": \"koc_\" + id,\n  \"email\": \"ozge\" + id + \"@gmail.com\",\n  \"password\": \"123456789\" + id,\n  \"phone\": \"5362264319\" + id,\n  \"userStatus\": 1\n};\ncy.request({\n  method: \"PUT\",\n  url: \"https://petstore.swagger.io/v2/user/denemekullanici\",\n  body: payload\n}).then(response => {\n  expect(response.status).to.eq(200);\n});",
+              "err": {},
+              "uuid": "a16df515-ade1-4244-9e39-483a4a077692",
+              "parentUUID": "7e6322b9-98dd-41d0-9c9d-0cbf8bfdde7d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Kullanıcı Bilgisi",
+              "fullTitle": "Login Test Kullanıcı Bilgisi",
+              "timedOut": null,
+              "duration": 158,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request(\"GET\", \"https://petstore.swagger.io/v2/user/ozge_\" + id).then(response => {\n  expect(response.status).to.eq(200);\n});",
+              "err": {},
+              "uuid": "2639e16e-890e-461f-b709-513c6fe78632",
+              "parentUUID": "7e6322b9-98dd-41d0-9c9d-0cbf8bfdde7d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Olmayan Kullanıcı Bilgisi",
+              "fullTitle": "Login Test Olmayan Kullanıcı Bilgisi",
+              "timedOut": null,
+              "duration": 156,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"GET\",\n  url: \"https://petstore.swagger.io/v2/user/ozge_yok__\" + id,\n  failOnStatusCode: false\n}).then(response => {\n  expect(response.status).to.eq(404);\n});",
+              "err": {},
+              "uuid": "ba43a268-7f1d-4a7e-8998-48c70386dbb7",
+              "parentUUID": "7e6322b9-98dd-41d0-9c9d-0cbf8bfdde7d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Kullanıcı Silme",
+              "fullTitle": "Login Test Kullanıcı Silme",
+              "timedOut": null,
+              "duration": 158,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"DELETE\",\n  url: \"https://petstore.swagger.io/v2/user/ozge_\" + id\n}).then(response => {\n  expect(response.status).to.eq(200);\n});",
+              "err": {},
+              "uuid": "00a10243-15ab-44a3-8d35-424a54ec6071",
+              "parentUUID": "7e6322b9-98dd-41d0-9c9d-0cbf8bfdde7d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "fb1310ff-0241-4278-9ad3-ebef1ec92311",
+            "80f92187-02b8-4b28-9d14-516f8c508759",
+            "a16df515-ade1-4244-9e39-483a4a077692",
+            "2639e16e-890e-461f-b709-513c6fe78632",
+            "ba43a268-7f1d-4a7e-8998-48c70386dbb7",
+            "00a10243-15ab-44a3-8d35-424a54ec6071"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1793,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

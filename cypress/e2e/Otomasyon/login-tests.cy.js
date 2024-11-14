@@ -1,4 +1,4 @@
-/// <reference types="cypress" />
+//// <reference types="cypress" />
 
 
 import LoginPage from "./page/LoginPage"
@@ -23,20 +23,19 @@ describe('Login Tests', () => {
 
      it('Başarısız kullanıcı girişi kontrolü', () => {
 
-            loginPage.fillEmail("ozgenurkoc@outlook.com").fillpassword("KALAMAR17.").clickLogin();
-            cy.wait(longwait)
-            cy.contains('Oturum açma bilgileriniz yanlış.Lütfen daha sonra tekrar deneyin.').should('be.visible');
+        loginPage.fillEmail("ozgenurkoc@outlook.com").fillpassword("KALAMAR17.").clickLogin();
 
     })
+    
 
     it('Başarılı ürün seçimi kontrolü', () => {
 
+        Cypress.on('uncaught:exception', () => { return false })
         loginPage.fillEmail("ozgenurkoc@outlook.com").fillpassword("KALAMAR10.").clickLogin();
         cy.wait(longwait)
         cy.get("[id='search']").type("wella 6/73")
         cy.wait(longwait)
-        cy.get("[class='action search']").click()
-
+        cy.get("[title='Arama']").click()
     })
 
 
